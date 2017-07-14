@@ -30,7 +30,10 @@ Article.prototype.toHtml = function() {
   this.publishStatus = this.publishedOn ? `published ${this.daysAgo} days ago` : '(draft)';
 
   // TODO: Use the function that Handlebars gave you to return your filled-in html template for THIS article.
-
+  var artlData = $('#artlData').html();
+  var compile = Handlebars.compile(artlData)
+  var datInfo = compile(newArtl);
+  $('#articles').append(datInfo)
 };
 
 rawData.sort(function(a,b) {
